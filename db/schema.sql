@@ -14,6 +14,8 @@ INSERT INTO songs(title, artist, lyrics, chords, user_id)
 VALUES
   ('Happy Birthday', 'Generic', 'Happy birthday to you,|Happy birthday to you,|Happy birthday, dear Jonathan,|Happy birthday to you.', '      G           D   |      D7          G   |      C           G   |      D7          G   ', 1);
 
+UPDATE songs SET chords='      -G-           -D-   |      -D7-          -G-   |      -C-           -G-   |      -D7-          -G-   ' WHERE id = 1;
+
 CREATE TABLE users(
   id SERIAL PRIMARY KEY,
   name TEXT,
