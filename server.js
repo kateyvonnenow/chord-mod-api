@@ -10,8 +10,8 @@ const songsController = require('./controllers/songs_controller')
 
 
 // start the web server
-app.listen(PORT,
-  () => console.log(`server listening to port ${PORT}`)
+app.listen(port,
+  () => console.log(`server listening to port ${port}`)
 )
 
 // workflow of express: starts from receiving a user request and ends with providing a response.
