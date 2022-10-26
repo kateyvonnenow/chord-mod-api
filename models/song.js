@@ -23,7 +23,7 @@ const Song = {
     const sql = `
       SELECT * FROM songs WHERE id = $1
     `
-    
+
     return db
       .query(sql, [songId])
       .then(dbRes => dbRes.rows[0])
@@ -35,7 +35,7 @@ const Song = {
       VALUES ($1, $2, $3, $4, $5) 
       RETURNING * 
     `
-
+    console.log(`${title} by ${artist} has been added`)
     return db 
       .query(sql, [title, artist, lyrics, chords, user_id])
       .then(dbRes => dbRes.rows[0])
@@ -60,13 +60,13 @@ const Song = {
       .then(dbRes => dbRes.rows[0])
   },
 
-  // delete: SongId => {
-  //   const sql = `
-  //     DELETE FROM songs WHERE id = $1
-  //   `
+  delete: (songId) => {
+    const sql = `
+      DELETE FROM songs WHERE id = $1
+    `
 
-  //   return db.query(sql, [SongId])
-  // }
+    return db.query(sql, [songId])
+  }
 }
 
 module.exports = Song

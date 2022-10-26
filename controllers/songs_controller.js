@@ -20,6 +20,7 @@ router.get('/:id', (req, res) => {
     .then(songs => res.json(songs))
 })
 
+// create
 router.post('/', (req, res) => {
   const { title, artist, lyrics, chords } = req.body
   const user_id = 1
@@ -31,27 +32,27 @@ router.post('/', (req, res) => {
 
 // edit/update
 router.get('/:id/edit', (req, res) => {
-  const Songid = req.params.id
+  const songId = req.params.id
 
   Song
-    .find(Songid)
+    .find(songId)
     .then(song  => res.json(song))
 })
 
 router.put('/:id', (req, res) => {
   const { title, artist, lyrics, chords } = req.body
-  const Songid = req.params.id
+  const songId = req.params.id
   Song
-    .update(id, title, artist, lyrics, chords)
+    .update(songId, title, artist, lyrics, chords)
     .then(updatedSong => res.json(updatedSong))
 })
 
-// router.delete('/:id', (req, res) => {
-//   const SongId = req.params.id
+router.delete('/:id', (req, res) => {
+  const songId = req.params.id
 
-//   Song
-//     .delete(SongId)
-//     .then(() => res.json({ message: 'deleted successfully' }))
-// })
+  Song
+    .delete(songId)
+    .then(() => res.json({ message: 'deleted successfully' }))
+})
 
 module.exports = router
