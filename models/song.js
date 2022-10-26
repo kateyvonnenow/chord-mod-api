@@ -6,7 +6,7 @@ const Song = {
 
     return db
       .query(sql)
-      .then(dbRes => dbRes.rows[0])
+      .then(dbRes => dbRes.rows)
   },
 
   findAllByUserId: (userId) => {
@@ -17,6 +17,16 @@ const Song = {
     return db
       .query(sql, [userId])
       .then(dbRes => dbRes.rows)
+  },
+
+  find: (songId) => {
+    const sql = `
+      SELECT * FROM songs WHERE id = $1
+    `
+    
+    return db
+      .query(sql, [songId])
+      .then(dbRes => dbRes.rows[0])
   },
 
   create: (title, artist, lyrics, chords, user_id) => {
@@ -31,16 +41,16 @@ const Song = {
       .then(dbRes => dbRes.rows[0])
   },
 
-  edit: (id, title, artist, lyrics, chords) => {
+  update: (id, title, artist, lyrics, chords) => {
     const sql = `
-      UPDATE song 
+      UPDATE songs 
       SET
         title = $2,
         artist = $3,
         lyrics = $4,
-        chords = $5,
+        chords = $5
       WHERE
-        id = 1
+        id = $1
       RETURNING * 
     `
 

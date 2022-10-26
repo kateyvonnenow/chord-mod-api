@@ -1,6 +1,7 @@
 CREATE DATABASE chord_mod_app;
 \c chord_mod_app
 
+-- Creating Songs Table
 CREATE TABLE songs(
   id SERIAL PRIMARY KEY,
   title TEXT,
@@ -10,6 +11,11 @@ CREATE TABLE songs(
   user_id INTEGER
 );
 
+-- Reset Songs table
+TRUNCATE TABLE songs;
+ALTER SEQUENCE songs_id_seq RESTART WITH 1;
+
+-- Inserting first song
 INSERT INTO songs(title, artist, lyrics, chords, user_id)
 VALUES
   ('Happy Birthday', 'Generic', 'Happy birthday to you,|Happy birthday to you,|Happy birthday, dear Jonathan,|Happy birthday to you.', '      G           D   |      D7          G   |      C           G   |      D7          G   ', 1);

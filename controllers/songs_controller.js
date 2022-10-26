@@ -13,6 +13,13 @@ router.get('/', (req, res) => {
     .then(songs => res.json(songs))
 })
 
+router.get('/:id', (req, res) => {
+  const Songid = req.params.id
+  Song
+    .find(Songid)
+    .then(songs => res.json(songs))
+})
+
 router.post('/', (req, res) => {
   const { title, artist, lyrics, chords } = req.body
   const user_id = 1
@@ -24,16 +31,18 @@ router.post('/', (req, res) => {
 
 // edit/update
 router.get('/:id/edit', (req, res) => {
+  const Songid = req.params.id
+
   Song
-    .find(req.params.id)
+    .find(Songid)
     .then(song  => res.json(song))
 })
 
 router.put('/:id', (req, res) => {
-  const { name, date, amount, description } = req.body
-
+  const { title, artist, lyrics, chords } = req.body
+  const Songid = req.params.id
   Song
-    .update(req.params.id, date, amount, name, description)
+    .update(id, title, artist, lyrics, chords)
     .then(updatedSong => res.json(updatedSong))
 })
 
