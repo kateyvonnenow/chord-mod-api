@@ -1,6 +1,6 @@
 # ChordMod
 
-## :video_game: [Browse](https://murmuring-cove-11425.herokuapp.com/) ChordMod now!
+## :guitar: [Browse](https://murmuring-cove-11425.herokuapp.com/) ChordMod now! :musical_keyboard:
 
 ## :book: About ChordMod + How to Use
 
